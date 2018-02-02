@@ -65,11 +65,40 @@ def binary_multiple_of_4? s
   return flag
 end
 
-puts binary_multiple_of_4?("1010")
-puts binary_multiple_of_4?("")
-puts binary_multiple_of_4?("1010101010100")
-# # Part 3
+# Part 3
 
-# class BookInStock
-# # YOUR CODE HERE
-# end
+class BookInStock
+  # YOUR CODE HERE
+  def initialize(isbn, price)
+    if ((isbn.to_s == "") || (price <= 0))
+      raise ArgumentError.new
+    end
+    @isbn = isbn
+    @price = price
+  end
+  def display
+    puts "ISBN: " + @isbn.to_s
+    puts "Price: " + @price.to_s
+  end
+  def set_isbn(isbn)
+    self.isbn = isbn
+  end
+  def set_price(price)
+    self.price = price
+  end
+  def isbn=(isbn)
+    @isbn = isbn
+  end
+  def isbn
+    @isbn
+  end
+  def price
+    @price
+  end
+  def price=(price)
+    @price = price
+  end
+  def price_as_string
+    return "$#{'%.02f' % @price}"
+  end
+end
