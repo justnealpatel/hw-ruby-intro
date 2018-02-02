@@ -41,18 +41,33 @@ end
 
 # Part 2
 
-# def hello(name)
-#   # YOUR CODE HERE
-# end
+def hello(name)
+  # YOUR CODE HERE
+  return "Hello, " + name.to_s
+end
 
-# def starts_with_consonant? s
-#   # YOUR CODE HERE
-# end
+def starts_with_consonant? s
+  # YOUR CODE HERE
+  vowels = ['a', 'e', 'i', 'o', 'u']
+  flag = false
+  if (s.class == String && (s.size > 0) && (s[0].downcase =~ /[[:alpha:]]/) && (!(vowels.include?(s[0].downcase))))
+    flag = true
+  end
+  return flag
+end
 
-# def binary_multiple_of_4? s
-#   # YOUR CODE HERE
-# end
+def binary_multiple_of_4? s
+  # YOUR CODE HERE
+  flag = true
+  if ((s.size == 0) || (!(s.each_char.all? {|x| x =~ /[01]/})) || (!(s.to_i(2) % 4 == 0)))
+    flag = false
+  end
+  return flag
+end
 
+puts binary_multiple_of_4?("1010")
+puts binary_multiple_of_4?("")
+puts binary_multiple_of_4?("1010101010100")
 # # Part 3
 
 # class BookInStock
